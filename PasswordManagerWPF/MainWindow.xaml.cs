@@ -2,9 +2,9 @@
 using System.Windows;
 namespace PasswordManagerWPF
 {
-    ///<summary>
-    ///Логіка взаємодії для MainWindow.xaml
-    ///</summary>
+    /// <summary>
+    /// Логіка взаємодії для MainWindow.xaml
+    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -30,7 +30,7 @@ namespace PasswordManagerWPF
         //Обробник для кнопки "Вийти"
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
-            //Повернення на екран блокування (логіну)
+            //Повернення на екран блокування (Логіну)
             MainFrame.Navigate(new Views.LoginPage());
         }
     }
