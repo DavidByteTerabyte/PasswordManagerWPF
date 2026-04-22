@@ -1,37 +1,41 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
+using System.Collections.ObjectModel;
+using PasswordManagerWPF.Models;
 namespace PasswordManagerWPF
 {
-    /// <summary>
-    /// Логіка взаємодії для MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
+        public ObservableCollection<PasswordEntry> MyPasswords { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
+            MyPasswords = new ObservableCollection<PasswordEntry>();
 
-            //Відкриваємо сторінку логіну при запуску програми
+            //Тимчасовий тестовий запис
+            MyPasswords.Add(new PasswordEntry { Site = "Google", Login = "test@gmail.com", Password = "123" });
+
+            this.DataContext = this;
+
+            //При запуску відкриваємо сторінку Логіну
             MainFrame.Navigate(new Views.LoginPage());
         }
 
-        //Обробник для кнопки "Мої паролі"
-        private void btnShowList_Click(object sender, RoutedEventArgs e)
-        {
-            MainFrame.Navigate(new Views.PasswordsListPage());
-        }
+        private void btnShowList_Click(object sender, RoutedEventArgs e) => MainFrame.Navigate(new Views.PasswordsListPage());
+        private void btnAdd_Click(object sender, RoutedEventArgs e) => MainFrame.Navigate(new Views.AddPasswordPage());
 
-        //Обробник для кнопки "Додати новий"
-        private void btnAdd_Click(object sender, RoutedEventArgs e)
-        {
-            MainFrame.Navigate(new Views.AddPasswordPage());
-        }
-
-        //Обробник для кнопки "Вийти"
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
-            //Повернення на екран блокування (Логіну)
+            //При виході: Ховаємо меню і йдемо на сторінку Логіну
+            LeftMenuPanel.Visibility = Visibility.Collapsed;
             MainFrame.Navigate(new Views.LoginPage());
+        }
+
+        //Цей метод ми викличемо зі сторінки логіну, коли пароль буде вірним
+        public void UnlockSafe()
+        {
+            LeftMenuPanel.Visibility = Visibility.Visible;
+            MainFrame.Navigate(new Views.PasswordsListPage());
         }
     }
 }

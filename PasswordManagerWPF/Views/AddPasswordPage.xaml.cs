@@ -1,28 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-
+using PasswordManagerWPF.Models;
 namespace PasswordManagerWPF.Views
 {
-    /// <summary>
-    /// Логика взаимодействия для AddPasswordPage.xaml
-    /// </summary>
     public partial class AddPasswordPage : Page
     {
+        //Поточний пароль, який ми вводимо
+        public PasswordEntry CurrentEntry { get; set; }
+
         public AddPasswordPage()
         {
             InitializeComponent();
+            CurrentEntry = new PasswordEntry();
+
+            //Встановлюємо DataContext (Вимога Етапу 6)
+            this.DataContext = CurrentEntry;
+        }
+
+        private void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+            DataStore.Passwords.Add(CurrentEntry);
+
+            //Одразу зберігаємо зміни у файл ===
+            DataStore.SaveToFile();
+
+            MessageBox.Show("Пароль успішно збережено у сейф!", "Успіх", MessageBoxButton.OK, MessageBoxImage.Information);
+
+            CurrentEntry = new PasswordEntry();
+            this.DataContext = CurrentEntry;
         }
     }
 }
