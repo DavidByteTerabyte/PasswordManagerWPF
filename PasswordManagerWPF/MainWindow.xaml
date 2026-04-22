@@ -20,13 +20,11 @@
             <StackPanel Margin="10,20,10,10">
                 <TextBlock Text="МЕНЮ" Foreground="White" FontSize="20" FontWeight="Bold" Margin="0,0,0,20" HorizontalAlignment="Center"/>
 
-                <Button Name="btnShowList" Content="Мої паролі" Height="40" Margin="0,0,0,10" Background="#34495E" Foreground="White" Click="btnShowList_Click"/>
-                <Button Name="btnAdd" Content="Додати новий" Height="40" Margin="0,0,0,10" Background="#34495E" Foreground="White" Click="btnAdd_Click"/>
-
-                <!-- Пустий простір, щоб відсунути кнопку виходу вниз -->
+                <Button Content="Мої паролі" Style="{StaticResource MenuBtnStyle}" Click="btnShowList_Click"/>
+                <Button Content="Додати новий" Style="{StaticResource MenuBtnStyle}" Click="btnAdd_Click"/>
                 <Separator Height="150" Visibility="Hidden"/>
+                <Button Content="Вийти" Style="{StaticResource MenuBtnStyle}" Background="{StaticResource DangerColor}" Click="btnExit_Click"/>
 
-                <Button Name="btnExit" Content="Вийти / Заблокувати" Height="40" Background="#E74C3C" Foreground="White" Click="btnExit_Click"/>
             </StackPanel>
         </Border>
 

@@ -1,0 +1,18 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- Кольори -->
+    <SolidColorBrush x:Key="BgColor" Color="#2C3E50"/>
+    <SolidColorBrush x:Key="BtnColor" Color="#34495E"/>
+    <SolidColorBrush x:Key="DangerColor" Color="#E74C3C"/>
+
+    <!-- Єдиний стиль для кнопок меню -->
+    <Style x:Key="MenuBtnStyle" TargetType="Button">
+        <Setter Property="Background" Value="{StaticResource BtnColor}"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Height" Value="40"/>
+        <Setter Property="Margin" Value="0,0,0,10"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="BorderThickness" Value="0"/>
+    </Style>
+</ResourceDictionary>
