@@ -2,17 +2,26 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <!-- Кольори -->
-    <SolidColorBrush x:Key="BgColor" Color="#2C3E50"/>
-    <SolidColorBrush x:Key="BtnColor" Color="#34495E"/>
+    <SolidColorBrush x:Key="PrimaryColor" Color="#2C3E50"/>
+    <SolidColorBrush x:Key="AccentColor" Color="#27AE60"/>
     <SolidColorBrush x:Key="DangerColor" Color="#E74C3C"/>
 
-    <!-- Єдиний стиль для кнопок меню -->
+    <!-- Стиль для кнопок меню -->
     <Style x:Key="MenuBtnStyle" TargetType="Button">
-        <Setter Property="Background" Value="{StaticResource BtnColor}"/>
+        <Setter Property="Background" Value="#34495E"/>
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="Height" Value="40"/>
         <Setter Property="Margin" Value="0,0,0,10"/>
         <Setter Property="FontSize" Value="14"/>
         <Setter Property="BorderThickness" Value="0"/>
     </Style>
+
+    <!-- Стиль для Заголовків сторінок -->
+    <Style x:Key="HeaderTextStyle" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="24"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Foreground" Value="#2C3E50"/>
+        <Setter Property="Margin" Value="0,0,0,20"/>
+    </Style>
+
 </ResourceDictionary>

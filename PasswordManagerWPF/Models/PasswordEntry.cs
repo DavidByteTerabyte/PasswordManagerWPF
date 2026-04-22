@@ -4,7 +4,7 @@ namespace PasswordManagerWPF.Models
 {
     public class PasswordEntry : INotifyPropertyChanged
     {
-        //Додал = string.Empty;, щоб прибрати попередження CS8618
+        //Додал = string.Empty; щоб прибрати попередження CS8618
         private string _site = string.Empty;
         private string _login = string.Empty;
         private string _password = string.Empty;
